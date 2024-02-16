@@ -42,6 +42,15 @@ Route::get('/admin/login', [AdminController::class, 'adminLogin']);
 Route::get('/admin/logout', [AdminController::class, 'adminLogout'])
     ->middleware(['auth', 'role:admin'])
     ->name('admin.logout');
+Route::post('/admin/profile/store', [AdminController::class, 'adminProfileStore'])
+    ->middleware(['auth', 'role:admin'])
+    ->name('admin.profile.store');
+Route::get('/admin/change/password', [AdminController::class, 'adminChangePassword'])
+    ->middleware(['auth', 'role:admin'])
+    ->name('admin.change.password');
+Route::post('/admin/update/password', [AdminController::class, 'adminUpdatePassword'])
+    ->middleware(['auth', 'role:admin'])
+    ->name('admin.update.password');
 
 // Agent Route
 Route::get('/agent/dashboard', [AgentController::class, 'agentDashboard'])
